@@ -1,0 +1,18 @@
+{
+  "name": "v-archive Extensions light - beta",
+  "description": "v-archive 업로드 확장프로그램입니다. 이 확장 프로그램은 베타 테스트용입니다",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions": ["tabs", "cookies"],
+  "host_permissions": ["https://v-archive.net/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://v-archive.net/*"],
+      "js": ["injection.js"]
+    },
+    {
+      "matches": ["https://v-archive.net/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
