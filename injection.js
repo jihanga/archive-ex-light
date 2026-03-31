@@ -162,8 +162,12 @@ function showOverlay(data, rect) {
   checkbox.checked = isShowTime;
 
   // 렌더링 후 높이 계산해서 row 위에 배치
-  const popupHeight = popup.offsetHeight;
-  popup.style.top = `${rect.top + window.scrollY - popupHeight}px`;
+  const rectTopPosition = rect.top + window.scrollY - popup.offsetHeight;
+  const rectBottomPosition = rect.bottom + window.scrollY;
+  const popupTopPosition =
+    rectTopPosition < 0 ? rectBottomPosition : rectTopPosition;
+
+  popup.style.top = `${popupTopPosition}px`;
 
   // 체크박스 이벤트
   checkbox.addEventListener("change", (e) => {
